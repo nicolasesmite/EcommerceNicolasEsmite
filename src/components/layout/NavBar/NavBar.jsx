@@ -1,5 +1,5 @@
 import React from "react";
-import CartWidget from "./CartWidget";
+import CartWidget from "../../common/CartWidget/CartWidget";
 import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
