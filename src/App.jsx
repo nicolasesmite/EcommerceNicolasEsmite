@@ -3,8 +3,7 @@ import ItemListContainer from "./components/pages/products/ItemListContainer";
 
 function App() {
   return (
-    <>
-      <NavBar />
+    <NavBar>
       <div
         style={{
           display: "flex",
@@ -17,7 +16,7 @@ function App() {
       >
         <ItemListContainer />
       </div>
-    </>
+    </NavBar>
   );
 }
 

@@ -53,7 +53,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function NavBar({ children }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navItems = ["Mates", "Bombillas", "Accesorios", "Consejos Rapidos"];
@@ -103,51 +103,54 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "green" }}>
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="black"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ color: "black", display: { xs: "none", sm: "block" } }}
-          >
-            Ja! Ke Mate
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Buscar articulos…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-          <Box sx={{ display: { xs: "none", sm: "flex" } }}>
-            {navItems.map((item) => (
-              <Button key={item} sx={{ color: "black" }}>
-                {item}
-              </Button>
-            ))}
-          </Box>
+    <>
+      <Box sx={{ flexGrow: 1 }}>
+        <AppBar position="static" sx={{ backgroundColor: "green" }}>
+          <Toolbar>
+            <IconButton
+              size="large"
+              edge="start"
+              color="black"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ color: "black", display: { xs: "none", sm: "block" } }}
+            >
+              Ja! Ke Mate
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Buscar articulos…"
+                inputProps={{ "aria-label": "search" }}
+              />
+            </Search>
+            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+              {navItems.map((item) => (
+                <Button key={item} sx={{ color: "black" }}>
+                  {item}
+                </Button>
+              ))}
+            </Box>
 
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "flex", md: "block" } }}>
-            <CartWidget /> {/*Renderizamos el componente Card*/}
-          </Box>
-        </Toolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+            <Box sx={{ flexGrow: 1 }} />
+            <Box sx={{ display: { xs: "flex", md: "block" } }}>
+              <CartWidget /> {/*Renderizamos el componente Card*/}
+            </Box>
+          </Toolbar>
+        </AppBar>
+        {renderMobileMenu}
+        {renderMenu}
+      </Box>
+      <>{children}</>
+    </>
   );
 }
