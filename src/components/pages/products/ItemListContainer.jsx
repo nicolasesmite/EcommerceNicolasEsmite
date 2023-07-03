@@ -1,6 +1,5 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import ItemList from "./ItemList";
 import { products } from "../../../productsMock";
 
