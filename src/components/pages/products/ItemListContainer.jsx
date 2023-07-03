@@ -2,17 +2,22 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ItemList from "./ItemList";
+import { products } from "../../../productsMock";
 
 function ItemListContainer() {
-  const [products, setProducts] = useState([]);
+  const [items, setItems] = useState([]);
 
-  useEffect(() => {
+  /*useEffect(() => {
     let data = axios.get("http://localhost:5000/products");
 
     data.then((res) => setProducts(res.data));
-  }, []);
+  }, []);*/
 
-  return <ItemList products={products} />;
+  useEffect(() => {
+    setItems(products);
+  });
+
+  return <ItemList products={items} />;
 }
 
 export default ItemListContainer;
