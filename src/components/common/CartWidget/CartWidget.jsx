@@ -3,7 +3,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { IconButton } from "@mui/material";
 import { Badge } from "@mui/material"; //importamos bagde que es el contador
 
-function CartWidget() {
+function CartWidget({ quantity }) {
   return (
     <IconButton
       size="large"
@@ -11,7 +11,7 @@ function CartWidget() {
       aria-haspopup="true"
       color="black"
     >
-      <Badge badgeContent={17} color="error">
+      <Badge badgeContent={quantity} color="error">
         <ShoppingCartIcon />
       </Badge>
     </IconButton>

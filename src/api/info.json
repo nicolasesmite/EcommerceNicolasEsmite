@@ -1,59 +1,59 @@
 {
   "products": [
     {
-      "nombre": "Mate Imperial",
-      "precio": 3500,
-      "moneda": "UYU",
+      "name": "Mate Imperial",
+      "price": 3500,
+      "currency": "UYU",
       "stock": 25,
-      "imagen": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/mate_imperial_zutfkk.jpg",
+      "img": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/mate_imperial_zutfkk.jpg",
       "id": 1717178
     },
     {
-      "nombre": "Mate Camionero",
-      "precio": 2200,
-      "moneda": "UYU",
+      "name": "Mate Camionero",
+      "price": 2200,
+      "currency": "UYU",
       "stock": 25,
-      "imagen": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255606/mate-camionero-cuero_hk0tyh.jpg",
+      "img": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255606/mate-camionero-cuero_hk0tyh.jpg",
       "id": 161616
     },
     {
-      "nombre": "Mate Guampa",
-      "precio": 1000,
-      "moneda": "UYU",
+      "name": "Mate Guampa",
+      "price": 1000,
+      "currency": "UYU",
       "stock": 25,
-      "imagen": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255557/mate-en-guampa-tallado_u0kgmz.jpg",
+      "img": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255557/mate-en-guampa-tallado_u0kgmz.jpg",
       "id": 171717
     },
     {
-      "nombre": "Mate Ceramica",
-      "precio": 780,
-      "moneda": "UYU",
+      "name": "Mate Ceramica",
+      "price": 780,
+      "currency": "UYU",
       "stock": 25,
-      "imagen": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255497/P055830-1_tcuvkl.jpg",
+      "img": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255497/P055830-1_tcuvkl.jpg",
       "id": 15151515
     },
     {
-      "nombre": "Bombilla de Plata",
-      "precio": 1500,
-      "moneda": "UYU",
+      "name": "Bombilla de Plata",
+      "price": 1500,
+      "currency": "UYU",
       "stock": 20,
-      "imagen": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/Bombilla-de-plata_rmmebm.jpg",
+      "img": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/Bombilla-de-plata_rmmebm.jpg",
       "id": 141414
     },
     {
-      "nombre": "Bombilla de Bronce",
-      "precio": 1350,
-      "moneda": "UYU",
+      "name": "Bombilla de Bronce",
+      "price": 1350,
+      "currency": "UYU",
       "stock": 20,
-      "imagen": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/bombilla_de_bronce_mkvyxx.jpg",
+      "img": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/bombilla_de_bronce_mkvyxx.jpg",
       "id": 13131313
     },
     {
-      "nombre": "Bombilla de Alpaca",
-      "precio": 1000,
-      "moneda": "UYU",
+      "name": "Bombilla de Alpaca",
+      "price": 1000,
+      "currency": "UYU",
       "stock": 20,
-      "imagen": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/bombilla_de_alpaca_uxjbid.jpg",
+      "img": "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/bombilla_de_alpaca_uxjbid.jpg",
       "id": 121212
     }
   ]
