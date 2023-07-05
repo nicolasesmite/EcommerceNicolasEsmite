@@ -6,15 +6,15 @@ import { products } from "../../../productsMock";
 function ItemListContainer() {
   const [items, setItems] = useState([]);
 
-  /*useEffect(() => {
-    let data = axios.get("http://localhost:5000/products");
-
-    data.then((res) => setProducts(res.data));
-  }, []);*/
-
   useEffect(() => {
-    setItems(products);
-  });
+    const tarea = new Promise((resolve, reject) => {
+      resolve(products);
+    });
+
+    tarea
+      .then((respuesta) => setItems(respuesta))
+      .catch((error) => setError(error));
+  }, []);
 
   return <ItemList products={items} />;
 }
