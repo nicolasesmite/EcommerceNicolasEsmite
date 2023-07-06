@@ -1,22 +1,25 @@
-import NavBar from "./components/layout/NavBar/NavBar";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemListContainer from "./components/pages/products/ItemListContainer";
+import NotFound from "./components/pages/notFound/NotFound";
+import CartContainer from "./components/pages/cart/cartContainer";
+import Layout from "./components/layout/NavBar/Layout";
+import ProductDetailContainer from "./components/pages/productDetail/productDetailContainer";
 
 function App() {
   return (
-    <NavBar>
-      <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          padding: "50px",
-          gap: "15px",
-          justifyContent: "center",
-          backgroundColor: "rgb(85,139,6,0.3)",
-        }}
-      >
-        <ItemListContainer />
-      </div>
-    </NavBar>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<ItemListContainer />} />
+          <Route path="/cart" element={<CartContainer />} />
+          <Route
+            path="/ProductDetail/:id"
+            element={<ProductDetailContainer />}
+          />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

@@ -11,6 +11,8 @@ import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import { Button } from "@mui/material";
+import { Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -53,7 +55,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavBar({ children }) {
+export default function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const navItems = ["Mates", "Bombillas", "Accesorios", "Consejos Rapidos"];
@@ -116,14 +118,16 @@ export default function NavBar({ children }) {
             >
               <MenuIcon />
             </IconButton>
-            <Typography
-              variant="h6"
-              noWrap
-              component="div"
-              sx={{ color: "black", display: { xs: "none", sm: "block" } }}
-            >
-              Ja! Ke Mate
-            </Typography>
+            <Link to="/">
+              <Typography
+                variant="h6"
+                noWrap
+                component="div"
+                sx={{ color: "black", display: { xs: "none", sm: "block" } }}
+              >
+                Ja! Ke Mate
+              </Typography>
+            </Link>
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -150,7 +154,7 @@ export default function NavBar({ children }) {
         {renderMobileMenu}
         {renderMenu}
       </Box>
-      <>{children}</>
+      <Outlet />
     </>
   );
 }

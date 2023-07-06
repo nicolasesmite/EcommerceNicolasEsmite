@@ -6,6 +6,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CartWidget from "../../common/CartWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 const ItemList = ({ products }) => {
   return products.map((element) => {
@@ -41,9 +42,11 @@ const ItemList = ({ products }) => {
               Add to cart
               <CartWidget quantity={"+"} />
             </Button>
-            <Button variant="outlined" color="success">
-              More Details
-            </Button>
+            <Link to={`/ProductDetail/${element.id}`}>
+              <Button variant="outlined" color="success">
+                More Details
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       </div>
