@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import ProductDetail from "./productDetail";
 
 const productDetailContainer = () => {
-  const [product, setProduct] = useState({});
+  const [item, setItem] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -14,10 +14,10 @@ const productDetailContainer = () => {
       resolve(ProductSelected);
     });
 
-    tarea.then((res) => setProduct(res));
+    tarea.then((res) => setItem(res));
   }, [id]);
 
-  return <ProductDetail product={product} />;
+  return <ProductDetail product={item} />;
 };
 
 export default productDetailContainer;

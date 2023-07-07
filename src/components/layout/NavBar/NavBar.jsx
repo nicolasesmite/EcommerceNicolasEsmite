@@ -138,11 +138,15 @@ export default function NavBar() {
               />
             </Search>
             <Box sx={{ display: { xs: "none", sm: "flex" } }}>
-              {navItems.map((item) => (
-                <Button key={item} sx={{ color: "black" }}>
-                  {item}
-                </Button>
-              ))}
+              <Link to="/category/Mates">
+                <Button sx={{ color: "black" }}>Mates</Button>
+              </Link>
+              <Link to="/category/Bombillas">
+                <Button sx={{ color: "black" }}>Bombillas</Button>
+              </Link>
+              <Link to="/category/Accesorios">
+                <Button sx={{ color: "black" }}>Accesorios</Button>
+              </Link>
             </Box>
 
             <Box sx={{ flexGrow: 1 }} />
@@ -154,7 +158,6 @@ export default function NavBar() {
         {renderMobileMenu}
         {renderMenu}
       </Box>
-      <Outlet />
     </>
   );
 }
