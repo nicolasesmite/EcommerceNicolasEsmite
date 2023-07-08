@@ -10,7 +10,11 @@ import CartWidget from "../../common/CartWidget/CartWidget";
 const productDetail = ({ product }) => {
   return (
     <div key={product.id}>
-      <Card sx={{ width: "300px" }}>
+      <Card
+        sx={{
+          width: { xs: "70%", sm: "300px" },
+        }}
+      >
         <CardMedia
           sx={{ height: "300px" }}
           image={product.img}
@@ -25,6 +29,9 @@ const productDetail = ({ product }) => {
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {product.stock} unidades disponibles
+          </Typography>
+          <Typography variant="body1" color="text.primary">
+            {product.detail}
           </Typography>
         </CardContent>
         <CardActions>

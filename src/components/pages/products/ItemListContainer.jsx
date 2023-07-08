@@ -17,12 +17,23 @@ function ItemListContainer() {
       resolve(categoryName === undefined ? products : productFiltered);
     });
 
-    console.log(products, productFiltered);
-
     tarea.then((res) => setItems(res));
   }, [categoryName]);
 
-  return <ItemList products={items} />;
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        padding: "50px",
+        gap: "25px",
+        justifyContent: "center",
+        backgroundColor: "rgb(85,139,6,0.3)",
+      }}
+    >
+      <ItemList products={items} />
+    </div>
+  );
 }
 
 export default ItemListContainer;

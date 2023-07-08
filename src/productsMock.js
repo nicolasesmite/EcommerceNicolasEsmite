@@ -7,6 +7,7 @@ export let products = [
     category: "Mates",
     img: "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/mate_imperial_zutfkk.jpg",
     id: 1717178,
+    detail: "Mate imperial de ceramica y cuero, emboquillado en alpaca ",
   },
   {
     name: "Mate Camionero",
@@ -16,6 +17,7 @@ export let products = [
     category: "Mates",
     img: "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255606/mate-camionero-cuero_hk0tyh.jpg",
     id: 161616,
+    detail: "Mate de vuelo o camionero forrado en cuero, boquilla en acero",
   },
   {
     name: "Mate Guampa",
@@ -25,6 +27,7 @@ export let products = [
     category: "Mates",
     img: "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255557/mate-en-guampa-tallado_u0kgmz.jpg",
     id: 171717,
+    detail: "Mate de guampa de elefante",
   },
   {
     name: "Mate Ceramica",
@@ -34,6 +37,8 @@ export let products = [
     category: "Mates",
     img: "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255497/P055830-1_tcuvkl.jpg",
     id: 15151515,
+    detail:
+      "Mate de cerámica forrado en cuero con base redonda, boquilla de acero inoxidable.",
   },
   {
     name: "Bombilla de Plata",
@@ -43,6 +48,7 @@ export let products = [
     category: "Bombillas",
     img: "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/Bombilla-de-plata_rmmebm.jpg",
     id: 141414,
+    detail: "Bombillas en plata cincelada",
   },
   {
     name: "Bombilla de Bronce",
@@ -52,6 +58,7 @@ export let products = [
     category: "Bombillas",
     img: "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/bombilla_de_bronce_mkvyxx.jpg",
     id: 13131313,
+    detail: "Bombilla en bronce inalterable  Modelo paisanita",
   },
   {
     name: "Bombilla de Alpaca",
@@ -61,5 +68,6 @@ export let products = [
     category: "Bombillas",
     img: "https://res.cloudinary.com/dxb4thu1x/image/upload/v1688255260/bombilla_de_alpaca_uxjbid.jpg",
     id: 121212,
+    detail: "Bombilla Alpaca artesanal cincelado, pico ancho",
   },
 ];

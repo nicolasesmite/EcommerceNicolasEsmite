@@ -17,7 +17,18 @@ const productDetailContainer = () => {
     tarea.then((res) => setItem(res));
   }, [id]);
 
-  return <ProductDetail product={item} />;
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "50px",
+        marginLeft: "5px",
+      }}
+    >
+      <ProductDetail product={item} />
+    </div>
+  );
 };
 
 export default productDetailContainer;

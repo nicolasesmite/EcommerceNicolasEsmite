@@ -4,13 +4,12 @@ import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import InputBase from "@mui/material/InputBase";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
-import { Button } from "@mui/material";
+import { Button, CardMedia } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 
@@ -58,7 +57,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function NavBar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-  const navItems = ["Mates", "Bombillas", "Accesorios", "Consejos Rapidos"];
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -109,25 +107,14 @@ export default function NavBar() {
       <Box sx={{ flexGrow: 1 }}>
         <AppBar position="static" sx={{ backgroundColor: "green" }}>
           <Toolbar>
-            <IconButton
-              size="large"
-              edge="start"
-              color="black"
-              aria-label="open drawer"
-              sx={{ mr: 2 }}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Link to="/">
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ color: "black", display: { xs: "none", sm: "block" } }}
-              >
-                Ja! Ke Mate
-              </Typography>
-            </Link>
+            <Box>
+              <Link to={"/"}>
+                <img
+                  style={{ width: "50px", marginTop: "7px" }}
+                  src={`https://res.cloudinary.com/dxb4thu1x/image/upload/v1688784344/logo-removebg-preview_rmfvx0.png`}
+                />
+              </Link>
+            </Box>
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
