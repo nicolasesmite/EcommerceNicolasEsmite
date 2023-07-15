@@ -4,14 +4,14 @@ import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
 import ProductDetail from "./productDetail";
 
-const productDetailContainer = () => {
+const ProductDetailContainer = () => {
   const [item, setItem] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    let ProductSelected = products.find((element) => element.id === +id);
+    let productSelected = products.find((element) => element.id === +id);
     const tarea = new Promise((resolve, reject) => {
-      resolve(ProductSelected);
+      resolve(productSelected);
     });
 
     tarea.then((res) => setItem(res));
@@ -31,4 +31,4 @@ const productDetailContainer = () => {
   );
 };
 
-export default productDetailContainer;
+export default ProductDetailContainer;
