@@ -26,7 +26,7 @@ const ProductDetailContainer = () => {
         marginLeft: "5px",
       }}
     >
-      <ProductDetail product={item} onAdd={onAdd} />
+      <ProductDetail product={item} />
     </div>
   );
 };

@@ -38,7 +38,7 @@ const ItemList = ({ products, addToCart }) => {
                 },
               }}
               variant="contained"
-              onClick={addToCart}
+              onClick={() => addToCart(element)}
             >
               Add to cart
               <CartWidget quantity={"+"} />
