@@ -7,20 +7,12 @@ const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (product) => {
-    const isInCart = (id) => {
-      let exist = cart.some((product) => product.id === id);
-      return exist;
-    };
-
     const exist = isInCart(product.id);
-    console.log(exist);
+
     if (exist) {
       let cartArray = cart.map((cartProduct) => {
         if (cartProduct.id === product.id) {
-          return {
-            ...cartProduct,
-            quantity: 1,
-          };
+          return { ...cartProduct, quantity: cartProduct.quantity + 1 };
         } else {
           return cartProduct;
         }
@@ -28,13 +20,18 @@ const CartContextProvider = ({ children }) => {
 
       setCart(cartArray);
     } else {
-      setCart([...cart, product]);
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
-
-    console.log(cart);
   };
 
+  console.log(cart);
+
   const clearCart = () => {};
+
+  const isInCart = (id) => {
+    let exist = cart.some((product) => product.id === id);
+    return exist;
+  };
 
   let data = { addToCart, clearCart };
 
