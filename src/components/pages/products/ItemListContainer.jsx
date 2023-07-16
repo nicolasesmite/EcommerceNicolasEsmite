@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
+import { CartContext } from "../../../context/CartContext";
 
 function ItemListContainer() {
   const [items, setItems] = useState([]);
   const { categoryName } = useParams();
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     let productFiltered = products.filter(
@@ -31,7 +33,7 @@ function ItemListContainer() {
         backgroundColor: "rgb(85,139,6,0.3)",
       }}
     >
-      <ItemList products={items} />
+      <ItemList products={items} addToCart={addToCart} />
     </div>
   );
 }

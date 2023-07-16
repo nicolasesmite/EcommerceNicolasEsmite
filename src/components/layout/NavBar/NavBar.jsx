@@ -12,6 +12,8 @@ import SearchIcon from "@mui/icons-material/Search";
 import { Button, CardMedia } from "@mui/material";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -104,7 +106,7 @@ export default function NavBar() {
 
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ display: "flex" }}>
         <AppBar position="static" sx={{ backgroundColor: "green" }}>
           <Toolbar>
             <Box>
@@ -115,16 +117,7 @@ export default function NavBar() {
                 />
               </Link>
             </Box>
-            <Search>
-              <SearchIconWrapper>
-                <SearchIcon />
-              </SearchIconWrapper>
-              <StyledInputBase
-                placeholder="Buscar articulos…"
-                inputProps={{ "aria-label": "search" }}
-              />
-            </Search>
-            <Box sx={{ display: { xs: "none", sm: "flex" } }}>
+            <Box sx={{ display: { xs: "flex" } }}>
               <Link to="/category/Mates">
                 <Button sx={{ color: "black" }}>Mates</Button>
               </Link>
@@ -137,8 +130,12 @@ export default function NavBar() {
             </Box>
 
             <Box sx={{ flexGrow: 1 }} />
-            <Box sx={{ display: { xs: "flex", md: "block" } }}>
-              <CartWidget /> {/*Renderizamos el componente Card*/}
+            <Box
+              sx={{
+                display: { xs: "flex", md: "flex" },
+              }}
+            >
+              <CartWidget />
             </Box>
           </Toolbar>
         </AppBar>

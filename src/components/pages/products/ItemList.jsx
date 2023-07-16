@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 import CartWidget from "../../common/CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 
-const ItemList = ({ products }) => {
+const ItemList = ({ products, addToCart }) => {
   return products.map((element) => {
     return (
       <div key={element.id}>
@@ -38,6 +38,7 @@ const ItemList = ({ products }) => {
                 },
               }}
               variant="contained"
+              onClick={addToCart}
             >
               Add to cart
               <CartWidget quantity={"+"} />
