@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { products } from "../productsMock";
 
 export const CartContext = createContext();
 
@@ -33,7 +32,7 @@ const CartContextProvider = ({ children }) => {
     return exist;
   };
 
-  let data = { addToCart, clearCart };
+  let data = { cart, addToCart, clearCart };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
 };

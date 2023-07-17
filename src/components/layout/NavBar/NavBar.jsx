@@ -1,62 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartWidget from "../../common/CartWidget/CartWidget";
-import { styled, alpha } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import InputBase from "@mui/material/InputBase";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import { Button, CardMedia } from "@mui/material";
-import { Outlet } from "react-router-dom";
+
+import { Button } from "@mui/material";
+
 import { Link } from "react-router-dom";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(3),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  color: "black",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  backgroundColor: "rgba(0,255,0,0.5)",
-  "&:hover": {
-    backgroundColor: "rgba(0,255,0,0.2)",
-  },
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("md")]: {
-      width: "20ch",
-    },
-  },
-}));
+import { CartContext } from "../../../context/CartContext";
 
 export default function NavBar() {
+  const { cart } = useContext(CartContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -135,7 +90,7 @@ export default function NavBar() {
                 display: { xs: "flex", md: "flex" },
               }}
             >
-              <CartWidget />
+              <CartWidget quantity={cart.length} />
             </Box>
           </Toolbar>
         </AppBar>
