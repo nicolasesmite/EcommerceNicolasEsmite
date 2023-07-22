@@ -22,8 +22,8 @@ const ProductDetailContainer = () => {
       style={{
         display: "flex",
         justifyContent: "center",
-        marginTop: "50px",
-        marginLeft: "5px",
+        padding: "1rem",
+        backgroundColor: "rgb(85,139,6,0.3)",
       }}
     >
       <ProductDetail product={item} />

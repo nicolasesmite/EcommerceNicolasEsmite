@@ -30,7 +30,20 @@ const ItemList = ({ products, addToCart }) => {
               {element.stock - quantity} unidades disponibles
             </Typography>
           </CardContent>
-          <CardActions>
+          <Slider
+            sx={{
+              display: "flex",
+              width: "70%",
+              margin: "2rem",
+            }}
+            marks={false}
+            max={element.stock}
+            min={1}
+            onChange={(e) => setQuantity(e.target.value)}
+            size="medium"
+            valueLabelDisplay="on"
+          />
+          <CardActions sx={{ gap: "0.5rem" }}>
             <Button
               sx={{
                 backgroundColor: "green",
@@ -42,14 +55,6 @@ const ItemList = ({ products, addToCart }) => {
               onClick={() => addToCart(element, quantity)}
             >
               Add to cart
-              <Slider
-                marks={false}
-                max={element.stock}
-                min={1}
-                onChange={(e) => setQuantity(e.target.value)}
-                size="medium"
-                valueLabelDisplay="on"
-              />
             </Button>
 
             <Link to={`/ProductDetail/${element.id}`}>

@@ -62,12 +62,15 @@ export default function NavBar() {
   return (
     <>
       <Box sx={{ display: "flex" }}>
-        <AppBar position="static" sx={{ backgroundColor: "green" }}>
-          <Toolbar>
+        <AppBar
+          position="fixed"
+          sx={{ backgroundColor: "green", marginBottom: "5rem" }}
+        >
+          <Toolbar sx={{ display: "flex" }}>
             <Box>
               <Link to={"/"}>
                 <img
-                  style={{ width: "50px", marginTop: "7px" }}
+                  style={{ width: "2rem", marginTop: "0.5rem" }}
                   src={`https://res.cloudinary.com/dxb4thu1x/image/upload/v1688784344/logo-removebg-preview_rmfvx0.png`}
                 />
               </Link>
@@ -85,11 +88,7 @@ export default function NavBar() {
             </Box>
 
             <Box sx={{ flexGrow: 1 }} />
-            <Box
-              sx={{
-                display: { xs: "flex", md: "flex" },
-              }}
-            >
+            <Box>
               <CartWidget quantity={cart.length} />
             </Box>
           </Toolbar>
