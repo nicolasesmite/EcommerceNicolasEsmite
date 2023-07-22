@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -6,8 +6,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CartWidget from "../../common/CartWidget/CartWidget";
+import Slider from "@mui/material/Slider";
+import { CartContext } from "../../../context/CartContext";
 
 const productDetail = ({ product }) => {
+  const { addToCart } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(1);
   return (
     <div key={product.id}>
       <Card
@@ -43,9 +47,17 @@ const productDetail = ({ product }) => {
               },
             }}
             variant="contained"
+            onClick={() => addToCart(product, quantity)}
           >
             Add to cart
-            <CartWidget quantity={"+"} />
+            <Slider
+              marks={false}
+              max={product.stock}
+              min={1}
+              onChange={(e) => setQuantity(e.target.value)}
+              size="medium"
+              valueLabelDisplay="on"
+            />
           </Button>
         </CardActions>
       </Card>

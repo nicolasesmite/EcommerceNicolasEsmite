@@ -1,15 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import CartWidget from "../../common/CartWidget/CartWidget";
 import { Link } from "react-router-dom";
 import Slider from "@mui/material/Slider";
 
 const ItemList = ({ products, addToCart }) => {
+  const [quantity, setQuantity] = useState(1);
   return products.map((element) => {
     return (
       <div key={element.id}>
@@ -27,7 +27,7 @@ const ItemList = ({ products, addToCart }) => {
               ${element.price}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {element.stock} unidades disponibles
+              {element.stock - quantity} unidades disponibles
             </Typography>
           </CardContent>
           <CardActions>
@@ -39,17 +39,16 @@ const ItemList = ({ products, addToCart }) => {
                 },
               }}
               variant="contained"
-              onClick={() => addToCart(element, 1)}
+              onClick={() => addToCart(element, quantity)}
             >
               Add to cart
-              <CartWidget quantity={.value} />
               <Slider
                 marks={false}
-                max={10}
-                min={0}
+                max={element.stock}
+                min={1}
+                onChange={(e) => setQuantity(e.target.value)}
                 size="medium"
-                id="contador"
-                valueLabelDisplay="auto"
+                valueLabelDisplay="on"
               />
             </Button>
 

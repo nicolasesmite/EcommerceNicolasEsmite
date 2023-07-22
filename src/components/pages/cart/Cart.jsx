@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 
 const Cart = ({ cartProduct }) => {
+  const { addToCart, deleteAnUnit } = useContext(CartContext);
   return (
     <div
       style={{
@@ -14,8 +16,18 @@ const Cart = ({ cartProduct }) => {
       <p>${cartProduct.price}</p>
       <p>Quantity {cartProduct.quantity}</p>
       <div style={{ gap: "2rem" }}>
-        <button style={{ width: "100%", height: "50%" }}>Add another</button>
-        <button style={{ width: "100%", height: "50%" }}>Delete article</button>
+        <button
+          onClick={() => addToCart(cartProduct, 1)}
+          style={{ width: "100%", height: "50%" }}
+        >
+          Add another
+        </button>
+        <button
+          onClick={() => deleteAnUnit(cartProduct)}
+          style={{ width: "100%", height: "50%" }}
+        >
+          Delete an unit
+        </button>
       </div>
     </div>
   );
