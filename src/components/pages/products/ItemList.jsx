@@ -7,6 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import CartWidget from "../../common/CartWidget/CartWidget";
 import { Link } from "react-router-dom";
+import Slider from "@mui/material/Slider";
 
 const ItemList = ({ products, addToCart }) => {
   return products.map((element) => {
@@ -38,11 +39,20 @@ const ItemList = ({ products, addToCart }) => {
                 },
               }}
               variant="contained"
-              onClick={() => addToCart(element)}
+              onClick={() => addToCart(element, 1)}
             >
               Add to cart
-              <CartWidget quantity={"+"} />
+              <CartWidget quantity={.value} />
+              <Slider
+                marks={false}
+                max={10}
+                min={0}
+                size="medium"
+                id="contador"
+                valueLabelDisplay="auto"
+              />
             </Button>
+
             <Link to={`/ProductDetail/${element.id}`}>
               <Button variant="outlined" color="success">
                 More Details
