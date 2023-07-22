@@ -6,16 +6,16 @@ const Cart = ({ cartProduct }) => {
       style={{
         display: "flex",
         alignItems: "center",
-        gap: "5%",
+        justifyContent: "center",
       }}
     >
-      <img src={cartProduct.img} style={{ width: "10vh" }} />
+      <img src={cartProduct.img} style={{ width: "5rem", margin: "1rem" }} />
       <p>{cartProduct.name}</p>
       <p>${cartProduct.price}</p>
-      <p>Cantidad solicitada {cartProduct.quantity}</p>
-      <div>
-        <button>Add another</button>
-        <button>Delete article</button>
+      <p>Quantity {cartProduct.quantity}</p>
+      <div style={{ gap: "2rem" }}>
+        <button style={{ width: "100%", height: "50%" }}>Add another</button>
+        <button style={{ width: "100%", height: "50%" }}>Delete article</button>
       </div>
     </div>
   );

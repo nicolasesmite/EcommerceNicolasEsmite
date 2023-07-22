@@ -8,8 +8,7 @@ const CartContainer = () => {
     return (
       <div
         style={{
-          margin: "2vh",
-          minWidth: "90%",
+          display: "flex",
           backgroundColor: "rgb(85,139,6,0.3)",
         }}
       >

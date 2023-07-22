@@ -23,8 +23,6 @@ const CartContextProvider = ({ children }) => {
     }
   };
 
-  console.log(cart);
-
   const clearCart = () => {};
 
   const isInCart = (id) => {
