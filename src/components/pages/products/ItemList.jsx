@@ -5,8 +5,8 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
 import Slider from "@mui/material/Slider";
+import { Link } from "react-router-dom";
 
 const ItemList = ({ products, addToCart }) => {
   const [quantity, setQuantity] = useState(1);
@@ -27,7 +27,7 @@ const ItemList = ({ products, addToCart }) => {
               ${element.price}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {element.stock - quantity} unidades disponibles
+              {element.stock} unidades disponibles
             </Typography>
           </CardContent>
           <Slider

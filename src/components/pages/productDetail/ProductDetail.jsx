@@ -2,7 +2,6 @@ import React, { useContext, useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
@@ -13,12 +12,11 @@ const productDetail = ({ product }) => {
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   return (
-    <div key={product.id} style={{ width: "70%" }}>
-      <Card sx={{}}>
-        <CardMedia
-          sx={{ height: { xs: "30vh", md: "50vh" } }}
-          image={product.img}
-          title={product.name}
+    <div key={product.id} style={{ width: "80%" }}>
+      <Card>
+        <img
+          src={`${product.img}`}
+          style={{ height: { xs: "1rem" }, width: "15rem" }}
         />
         <CardContent sx={{ marginLeft: "1rem" }}>
           <Typography gutterBottom variant="h5" component="div">
@@ -33,11 +31,11 @@ const productDetail = ({ product }) => {
           <Typography variant="body1" color="text.primary">
             {product.detail}
           </Typography>
-          <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
+          <Rating name="half-rating" defaultValue={4.7} precision={0.5} />
         </CardContent>
 
         <Slider
-          sx={{ maxWidth: "80%", marginLeft: "2rem", marginTop: "1rem" }}
+          sx={{ maxWidth: "13rem", marginLeft: "2rem", marginTop: "1rem" }}
           marks={false}
           max={product.stock}
           min={1}

@@ -24,6 +24,7 @@ const ProductDetailContainer = () => {
         justifyContent: "center",
         padding: "1rem",
         backgroundColor: "rgb(85,139,6,0.3)",
+        marginTop: "3rem",
       }}
     >
       <ProductDetail product={item} />

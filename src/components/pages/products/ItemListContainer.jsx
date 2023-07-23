@@ -31,6 +31,7 @@ function ItemListContainer() {
         gap: "25px",
         justifyContent: "center",
         backgroundColor: "rgb(85,139,6,0.3)",
+        marginTop: "2rem",
       }}
     >
       <ItemList products={items} addToCart={addToCart} />

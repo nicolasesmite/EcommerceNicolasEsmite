@@ -4,18 +4,28 @@ import Cart from "./Cart";
 
 const CartContainer = () => {
   const { cart } = useContext(CartContext);
-  return cart.map((product) => {
-    return (
+  return (
+    <>
       <div
         style={{
           display: "flex",
-          backgroundColor: "rgb(85,139,6,0.3)",
+          flexWrap: "wrap",
+          gap: "1rem",
+          marginTop: "5rem",
+          alignItems: "center",
+          justifyContent: { xs: "center", md: "flex-start" },
         }}
       >
-        <Cart cartProduct={product} key={product.id} />
+        {cart.map((product) => {
+          return (
+            <div>
+              <Cart cartProduct={product} key={product.id} />
+            </div>
+          );
+        })}
       </div>
-    );
-  });
+    </>
+  );
 };
 
 export default CartContainer;
