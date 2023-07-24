@@ -12,9 +12,9 @@ const Cart = ({ cartProduct }) => {
   return (
     <>
       <div key={cartProduct.id}>
-        <Card sx={{ width: "15rem" }}>
+        <Card sx={{ width: { xs: "100%", md: "100%" } }}>
           <CardMedia
-            sx={{ height: "10rem" }}
+            sx={{ height: { xs: "5rem" } }}
             image={cartProduct.img}
             title={cartProduct.name}
           />
