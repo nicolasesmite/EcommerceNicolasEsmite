@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
@@ -38,7 +38,9 @@ function ItemListContainer() {
         padding: "50px",
         gap: "25px",
         justifyContent: "center",
-        backgroundColor: "rgb(85,139,6,0.3)",
+
+        height: "100%",
+
         marginTop: "2rem",
       }}
     >

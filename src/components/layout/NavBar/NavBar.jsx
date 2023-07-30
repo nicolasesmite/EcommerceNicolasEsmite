@@ -82,8 +82,8 @@ export default function NavBar() {
               <Link to="/category/Bombillas">
                 <Button sx={{ color: "black" }}>Bombillas</Button>
               </Link>
-              <Link to="/category/Accesorios">
-                <Button sx={{ color: "black" }}>Accesorios</Button>
+              <Link to="/miOrden">
+                <Button sx={{ color: "black" }}>Mi orden</Button>
               </Link>
             </Box>
 

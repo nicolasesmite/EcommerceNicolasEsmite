@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import Cart from "./Cart";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CartContainer = () => {
   const { cart, clearCart, getTotal } = useContext(CartContext);
@@ -20,7 +21,7 @@ const CartContainer = () => {
         >
           {cart.map((product) => {
             return (
-              <div>
+              <div key={product.id}>
                 <Cart cartProduct={product} key={product.id} />
               </div>
             );
@@ -50,7 +51,16 @@ const CartContainer = () => {
             </div>
           </div>
         ) : (
-          <div>Sweet alert de carrito vacio</div>
+          <div>
+            {Swal.fire({
+              showConfirmButton: false,
+              imageUrl:
+                "https://res.cloudinary.com/dxb4thu1x/image/upload/v1690685850/image_content_32105305_20181027153110_fou1mi.jpg",
+              imageWidth: 400,
+              title: "Parece que aun no hay productos en el carrito",
+              footer: '<a href="/">Continuar comprando</a>',
+            })}
+          </div>
         )}
       </div>
     </>

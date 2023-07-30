@@ -51,12 +51,15 @@ const CheckOutContainer = () => {
 
   return (
     <div style={{ marginTop: "150px" }}>
-      <h1>Checkout</h1>
+      <h1>Finalizar compra</h1>
 
       {orderId ? (
         <div>
           <h3>Gracias por preferirnos</h3>
           <h4>Su numero de comprar es: {orderId}</h4>
+          <h3>
+            Puede consultar el estado de su compra en la seccion "Mi orden"
+          </h3>
           <Link to="/">Volver a comprar</Link>
         </div>
       ) : (

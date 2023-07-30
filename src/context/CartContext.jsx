@@ -27,7 +27,6 @@ const CartContextProvider = ({ children }) => {
     if (product.quantity == 1) {
       let productFiltered = cart.filter((e) => e.name !== product.name);
       setCart(productFiltered);
-      /*Agrega sweet alert para indicar que el carrito esta vacio*/
     } else {
       let cartArray = cart.map((cartProduct) => {
         if (cartProduct.id === product.id) {
