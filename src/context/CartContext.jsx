@@ -23,8 +23,6 @@ const CartContextProvider = ({ children }) => {
     }
   };
 
-  const clearCart = () => {};
-
   const deleteAnUnit = (product) => {
     if (product.quantity == 1) {
       let productFiltered = cart.filter((e) => e.name !== product.name);
@@ -47,7 +45,30 @@ const CartContextProvider = ({ children }) => {
     return exist;
   };
 
-  let data = { cart, addToCart, clearCart, deleteAnUnit };
+  const getTotal = () => {
+    let total = 0;
+    cart.forEach((element) => {
+      total += element.price * element.quantity;
+    });
+    return total;
+  };
+
+  const getQuantityById = (id) => {
+    const product = cart.find((elemento) => elemento.id === id);
+    return product?.quantity;
+  };
+  const clearCart = () => {
+    setCart([]);
+  };
+  let data = {
+    cart,
+    addToCart,
+    clearCart,
+    deleteAnUnit,
+    getTotal,
+    getQuantityById,
+    clearCart,
+  };
 
   return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
 };

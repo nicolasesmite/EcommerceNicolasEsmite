@@ -9,8 +9,10 @@ import { CartContext } from "../../../context/CartContext";
 import Rating from "@mui/material/Rating";
 
 const productDetail = ({ product }) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, getQuantityById } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
+  const totalQuantity = getQuantityById(product.id);
+
   return (
     <div key={product.id} style={{ width: "80%" }}>
       <Card>
@@ -25,37 +27,66 @@ const productDetail = ({ product }) => {
           <Typography gutterBottom variant="h6" component="div">
             ${product.price}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {product.stock} unidades disponibles
-          </Typography>
+          {product.stock === 0 && (
+            <Typography variant="h5" color="text.secondary">
+              Este articulo se encuentra agotado
+            </Typography>
+          )}
+          {product.stock !== 0 && (
+            <Typography variant="body2" color="text.secondary">
+              {totalQuantity !== undefined
+                ? product.stock - totalQuantity
+                : product.stock}
+              Unidades disponibles
+            </Typography>
+          )}
+
           <Typography variant="body1" color="text.primary">
             {product.detail}
           </Typography>
           <Rating name="half-rating" defaultValue={4.7} precision={0.5} />
         </CardContent>
 
-        <Slider
-          sx={{ maxWidth: "13rem", marginLeft: "2rem", marginTop: "1rem" }}
-          marks={false}
-          max={product.stock}
-          min={1}
-          onChange={(e) => setQuantity(e.target.value)}
-          size="medium"
-          valueLabelDisplay="on"
-        />
+        {(typeof totalQuantity === "undefined" ||
+          product.stock > totalQuantity) &&
+          product.stock > 0 && (
+            <Slider
+              sx={{ maxWidth: "13rem", marginLeft: "2rem", marginTop: "1rem" }}
+              marks={false}
+              max={
+                totalQuantity !== undefined
+                  ? product.stock - totalQuantity
+                  : product.stock
+              }
+              min={1}
+              onChange={(e) => setQuantity(e.target.value)}
+              size="medium"
+              valueLabelDisplay="on"
+            />
+          )}
         <CardActions sx={{ justifyContent: "center" }}>
-          <Button
-            sx={{
-              backgroundColor: "green",
-              "&:hover": {
-                backgroundColor: "rgb(106,159,30,0.7)",
-              },
-            }}
-            variant="contained"
-            onClick={() => addToCart(product, quantity)}
-          >
-            Add to cart
-          </Button>
+          {(typeof totalQuantity === "undefined" ||
+            product.stock > totalQuantity) &&
+            product.stock > 0 && (
+              <Button
+                sx={{
+                  backgroundColor: "green",
+                  "&:hover": {
+                    backgroundColor: "rgb(106,159,30,0.7)",
+                  },
+                }}
+                variant="contained"
+                onClick={() => addToCart(product, quantity)}
+              >
+                Add to cart
+              </Button>
+            )}
+
+          {totalQuantity === product.stock && (
+            <Typography variant="h5" color="text.primary">
+              Todas las unidades disponibles estan en tu carrito
+            </Typography>
+          )}
         </CardActions>
       </Card>
     </div>

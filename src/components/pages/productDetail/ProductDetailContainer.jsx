@@ -1,20 +1,20 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
 import ProductDetail from "./productDetail";
+import { db } from "../../../firebaseConfig";
+import { getDoc, collection, doc } from "firebase/firestore";
 
 const ProductDetailContainer = () => {
   const [item, setItem] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
-    let productSelected = products.find((element) => element.id === +id);
-    const tarea = new Promise((resolve, reject) => {
-      resolve(productSelected);
+    let productsCollection = collection(db, "products");
+    let productRef = doc(productsCollection, id);
+    getDoc(productRef).then((res) => {
+      setItem({ ...res.data(), id: res.id });
     });
-
-    tarea.then((res) => setItem(res));
   }, [id]);
 
   return (

@@ -1,25 +1,33 @@
 import React, { useContext } from "react";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
-import { CartContext } from "../../../context/CartContext";
+import { db } from "../../../firebaseConfig";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 function ItemListContainer() {
   const [items, setItems] = useState([]);
   const { categoryName } = useParams();
-  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    let productFiltered = products.filter(
-      (element) => element.category === categoryName
-    );
+    let productsCollection = collection(db, "products");
+    let consulta;
+    if (categoryName) {
+      consulta = query(
+        productsCollection,
+        where("category", "==", categoryName)
+      );
+    } else {
+      consulta = productsCollection;
+    }
 
-    const tarea = new Promise((resolve, reject) => {
-      resolve(categoryName === undefined ? products : productFiltered);
+    getDocs(consulta).then((res) => {
+      let productos = res.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
+
+      setItems(productos);
     });
-
-    tarea.then((res) => setItems(res));
   }, [categoryName]);
 
   return (
@@ -34,7 +42,7 @@ function ItemListContainer() {
         marginTop: "2rem",
       }}
     >
-      <ItemList products={items} addToCart={addToCart} />
+      <ItemList products={items} />
     </div>
   );
 }
