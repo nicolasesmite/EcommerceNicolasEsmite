@@ -6,15 +6,19 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const Cart = ({ cartProduct }) => {
   const { addToCart, deleteAnUnit } = useContext(CartContext);
   return (
     <>
-      <div key={cartProduct.id}>
-        <Card sx={{ width: { xs: "100%", md: "100%" } }}>
+      <Box key={cartProduct.id} sx={{ display: "flex" }}>
+        <Card sx={{ width: { xs: "350px", md: "100%" } }}>
           <CardMedia
-            sx={{ height: { xs: "5rem" } }}
+            sx={{
+              height: { xs: "100px" },
+              width: { xs: "100px" },
+            }}
             image={cartProduct.img}
             title={cartProduct.name}
           />
@@ -29,19 +33,25 @@ const Cart = ({ cartProduct }) => {
               Quantity {cartProduct.quantity}
             </Typography>
           </CardContent>
-          <CardActions sx={{ gap: "0.5rem" }}>
-            <Button
-              sx={{
-                backgroundColor: "green",
-                "&:hover": {
-                  backgroundColor: "rgb(106,159,30,0.7)",
-                },
-              }}
-              variant="contained"
-              onClick={() => addToCart(cartProduct, 1)}
-            >
-              Add another
-            </Button>
+          <CardActions sx={{ gap: "0.5rem", display: "flex" }}>
+            {cartProduct.quantity < cartProduct.stock ? (
+              <Button
+                sx={{
+                  backgroundColor: "green",
+                  "&:hover": {
+                    backgroundColor: "rgb(106,159,30,0.7)",
+                  },
+                }}
+                variant="contained"
+                onClick={() => addToCart(cartProduct, 1)}
+              >
+                Add another
+              </Button>
+            ) : (
+              <Typography gutterBottom variant="h6" component="div">
+                Tienes el maximo de unidades en tu carrito
+              </Typography>
+            )}
 
             <Button
               onClick={() => deleteAnUnit(cartProduct, 1)}
@@ -52,7 +62,7 @@ const Cart = ({ cartProduct }) => {
             </Button>
           </CardActions>
         </Card>
-      </div>
+      </Box>
     </>
   );
 };

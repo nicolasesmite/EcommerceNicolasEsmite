@@ -8,13 +8,12 @@ const CartContainer = () => {
   const { cart, clearCart, getTotal } = useContext(CartContext);
   return (
     <>
-      <div style={{ marginBottom: "10rem" }}>
+      <div style={{ marginBottom: "10rem", marginTop: "100px" }}>
         <div
           style={{
             display: "flex",
             flexWrap: "wrap",
             gap: "1rem",
-            marginTop: "5rem",
             alignItems: "center",
             justifyContent: { xs: "center", md: "flex-start" },
           }}
@@ -27,6 +26,7 @@ const CartContainer = () => {
             );
           })}
         </div>
+
         {cart.length > 0 ? (
           <div
             style={{
@@ -34,20 +34,38 @@ const CartContainer = () => {
               width: "100%",
               backgroundColor: "whitesmoke",
               bottom: "0",
-              height: "10rem",
+              height: "15%",
             }}
           >
-            <h1>Total de la compra ${getTotal()}</h1>
-            <div style={{ width: "" }}>
+            <h2 style={{ marginLeft: "20px" }}>
+              Total de la compra ${getTotal()}
+            </h2>
+            <div
+              style={{
+                width: "100%",
+                display: "flex",
+                margin: "10px",
+                gap: "5px",
+              }}
+            >
               <Link to={"/checkOut"}>
-                <button>Finalizar compra</button>
+                <button style={{ width: "100px", height: "100%" }}>
+                  Finalizar compra
+                </button>
               </Link>
+
+              <button
+                style={{ width: "100px", height: "50px" }}
+                onClick={clearCart}
+              >
+                Vaciar carrito
+              </button>
 
               <Link to={"/"}>
-                <button>Seguir Comprando</button>
+                <button style={{ width: "100px", height: "100%" }}>
+                  Seguir Comprando
+                </button>
               </Link>
-
-              <button onClick={clearCart}>Vaciar carrito</button>
             </div>
           </div>
         ) : (

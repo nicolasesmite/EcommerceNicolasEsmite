@@ -21,7 +21,7 @@ const ItemList = ({ products }) => {
         const totalQuantity = getQuantityById(element.id);
         return (
           <div key={element.id}>
-            <Card sx={{ width: "300px" }}>
+            <Card sx={{ width: "300px", height: "600px" }}>
               <CardMedia
                 sx={{ height: "300px" }}
                 image={element.img}

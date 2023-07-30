@@ -30,6 +30,7 @@ const CheckOutContainer = () => {
       buyer: data,
       items: cart,
       total,
+      estado: "En preparacion",
       date: serverTimestamp(),
     };
 
@@ -50,9 +51,17 @@ const CheckOutContainer = () => {
   };
 
   return (
-    <div style={{ marginTop: "150px" }}>
-      <h1>Finalizar compra</h1>
-
+    <div
+      style={{
+        marginTop: "150px",
+        flexWrap: "wrap",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        border: "solid",
+        width: "80%",
+      }}
+    >
       {orderId ? (
         <div>
           <h3>Gracias por preferirnos</h3>
@@ -63,27 +72,32 @@ const CheckOutContainer = () => {
           <Link to="/">Volver a comprar</Link>
         </div>
       ) : (
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Ingrese su nombre"
-            name="name"
-            onChange={handleChange}
-          />
-          <input
-            type="text"
-            placeholder="Ingrese su telefono"
-            name="phone"
-            onChange={handleChange}
-          />
-          <input
-            type="email"
-            placeholder="Ingrese su email"
-            name="email"
-            onChange={handleChange}
-          />
-          <button type="submit">Comprar</button>
-        </form>
+        <>
+          <h1>Finalizar compra</h1>
+          <div style={{ display: "flex" }}>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Ingrese su nombre"
+                name="name"
+                onChange={handleChange}
+              />
+              <input
+                type="text"
+                placeholder="Ingrese su telefono"
+                name="phone"
+                onChange={handleChange}
+              />
+              <input
+                type="email"
+                placeholder="Ingrese su email"
+                name="email"
+                onChange={handleChange}
+              />
+              <button type="submit">Comprar</button>
+            </form>
+          </div>
+        </>
       )}
     </div>
   );
