@@ -1,8 +1,8 @@
-import CartContainer from "../components/pages/cart/CartContainer";
 import ProductDetailContainer from "../components/pages/productDetail/productDetailContainer";
 import ItemListContainer from "../components/pages/products/ItemListContainer";
 import CheckOutContainer from "../components/pages/checkOut/CheckOutContainer";
 import MiOrden from "../components/pages/miOrden/MiOrden";
+import CartContainer from "../components/pages/cart/CartContain";
 
 export const routes = [
   {
