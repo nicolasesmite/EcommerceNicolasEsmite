@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
-import { CartContext } from "../../context/CartContext";
-import { db } from "../../firebaseConfig";
+import { CartContext } from "../../../context/CartContext";
+import { db } from "../../../firebaseConfig";
 import {
   addDoc,
   collection,
@@ -53,48 +53,73 @@ const CheckOutContainer = () => {
   return (
     <div
       style={{
-        marginTop: "150px",
-        flexWrap: "wrap",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        border: "solid",
-        width: "80%",
+        margin: "100px 0 50px 25px",
+        width: "300px",
+        backgroundColor: "rgb(17, 186, 0)",
+        height: orderId ? "300px" : "350px",
+        padding: "20px",
       }}
     >
       {orderId ? (
-        <div>
-          <h3>Gracias por preferirnos</h3>
-          <h4>Su numero de comprar es: {orderId}</h4>
-          <h3>
-            Puede consultar el estado de su compra en la seccion "Mi orden"
-          </h3>
-          <Link to="/">Volver a comprar</Link>
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "5px",
+          }}
+        >
+          <h2>Detalles de su compra</h2>
+          <div style={{ marginTop: "15px" }}>
+            <h4>Su numero de comprar es: {orderId}</h4>
+            <h3>
+              Puede consultar el estado de su compra en la seccion "Mi orden"
+            </h3>
+            <Link to="/">
+              <button style={{ width: "150px" }}>Volver a comprar</button>
+            </Link>
+          </div>
         </div>
       ) : (
         <>
-          <h1>Finalizar compra</h1>
-          <div style={{ display: "flex" }}>
+          <h1 style={{ margin: "10px" }}>Finalizar compra</h1>
+          <div
+            style={{
+              margin: "10px",
+              padding: "5px",
+              display: "flex",
+              gap: "5px",
+            }}
+          >
             <form onSubmit={handleSubmit}>
               <input
+                style={{ height: "30px", width: "100%", margin: "1px" }}
                 type="text"
                 placeholder="Ingrese su nombre"
                 name="name"
                 onChange={handleChange}
               />
               <input
+                style={{ height: "30px", width: "100%", margin: "1px" }}
                 type="text"
                 placeholder="Ingrese su telefono"
                 name="phone"
                 onChange={handleChange}
               />
               <input
+                style={{ height: "30px", width: "100%", margin: "1px" }}
                 type="email"
                 placeholder="Ingrese su email"
                 name="email"
                 onChange={handleChange}
               />
-              <button type="submit">Comprar</button>
+              <button
+                type="submit"
+                style={{ height: "30px", width: "100%", margin: "1px" }}
+              >
+                Comprar
+              </button>
             </form>
           </div>
         </>

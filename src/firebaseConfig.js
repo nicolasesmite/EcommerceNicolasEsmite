@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBJu-hmno4smLO26TLwYX3TQFFcdzdyAfA",
-  authDomain: "jakemate-6e892.firebaseapp.com",
+  apiKey: import.meta.env.VITE_APIKEY,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
   projectId: "jakemate-6e892",
-  storageBucket: "jakemate-6e892.appspot.com",
-  messagingSenderId: "117673521408",
-  appId: "1:117673521408:web:9afb6a329bfacb87d743e5",
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGINGSENDRID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase
