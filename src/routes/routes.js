@@ -1,4 +1,4 @@
-import ProductDetailContainer from "../components/pages/productDetail/productDetailContainer";
+import ProductDetailContainer from "../components/pages/productDetail/ProductDetailContain";
 import ItemListContainer from "../components/pages/products/ItemListContainer";
 import CheckOutContainer from "../components/pages/checkOut/CheckOutContainer";
 import MiOrden from "../components/pages/miOrden/MiOrden";
